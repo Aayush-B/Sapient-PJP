@@ -13,15 +13,14 @@ pipeline{
 			steps{
 				script{
 					def mvnHome = tool name: 'Maven', type: 'maven'
-					sh 'cd exampleApp'
-					sh "${mvnHome}/bin/mvn clean package"
+					sh "cd exampleApp && ${mvnHome}/bin/mvn clean package"
 				}
 			}
 		}
 
 		stage('Executing JAR') {
 			steps{
-					sh 'java -jar target/exampleApp-1.0.jar'
+					sh 'cd exampleApp && java -jar target/exampleApp-1.0.jar'
 				}
 			}
 			
