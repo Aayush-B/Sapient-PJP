@@ -1,20 +1,30 @@
 pipeline{
+	agent any
+	
 	stages{
 		stage('SCM Checkout'){
-			checkout scm
+			steps{
+				checkout scm
+			}
+			
 		}
 
 		stage('Build Step'){
-			useMaven(maven : 'Maven') {
-				sh 'cd exampleApp'
-				sh 'mvn clean package'
+			steps{
+				useMaven(maven : 'Maven') {
+					sh 'cd exampleApp'
+					sh 'mvn clean package'
+				}
 			}
 		}
 
 		stage('Executing JAR') {
-			useJAVA(java : 'JDK_8'){
-				sh 'java -jar target/exampleApp-1.0.jar'
+			steps{
+					useJAVA(java : 'JDK_8'){
+					sh 'java -jar target/exampleApp-1.0.jar'
+				}
 			}
+			
 		}
 	}
 }
