@@ -11,15 +11,23 @@ pipeline{
 
 		stage('Build Step'){
 			steps{
-				def mvnHome = tool name: 'Maven', type: 'maven'
-				sh 'cd exampleApp'
-				sh "${mvnHome}/bin/mvn clean package"
+				step('Define Maven Path'){
+					def mvnHome = tool name: 'Maven', type: 'maven'
+				}
+				
+				step('Build package'){
+					sh 'cd exampleApp'
+					sh "${mvnHome}/bin/mvn clean package"
+				}
 			}
 		}
 
 		stage('Executing JAR') {
 			steps{
-					sh 'java -jar target/exampleApp-1.0.jar'
+					step('Execute'){
+						sh 'java -jar target/exampleApp-1.0.jar'
+					}
+					
 				}
 			}
 			
