@@ -6,6 +6,7 @@ pipeline{
 
 		stage('Build Step'){
 			useMaven(maven : 'Maven') {
+				sh 'cd exampleApp'
 				sh 'mvn clean package'
 			}
 		}
