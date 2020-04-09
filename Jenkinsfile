@@ -11,7 +11,7 @@ pipeline{
 
 		stage('Build Step'){
 			steps{
-				useMaven(maven : 'Maven') {
+				withMaven(maven : 'Maven') {
 					sh 'cd exampleApp'
 					sh 'mvn clean package'
 				}
@@ -20,7 +20,7 @@ pipeline{
 
 		stage('Executing JAR') {
 			steps{
-					useJAVA(java : 'JDK_8'){
+					withJAVA(java : 'JDK_8'){
 					sh 'java -jar target/exampleApp-1.0.jar'
 				}
 			}
