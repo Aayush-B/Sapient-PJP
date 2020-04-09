@@ -1,7 +1,5 @@
 pipeline{
 	agent any
-
-	def mvnHome = tool name: 'Maven', type: 'maven'
 	
 	stages{
 		stage('SCM Checkout'){
@@ -13,6 +11,7 @@ pipeline{
 
 		stage('Build Step'){
 			steps{
+				def mvnHome = tool name: 'Maven', type: 'maven'
 				sh 'cd exampleApp'
 				sh "${mvnHome}/bin/mvn clean package"
 			}
