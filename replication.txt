@@ -1,0 +1,19 @@
+function insertWithBackup(collectionName,item){ //A new function to insert items into our database. This function will also insert items in the backup database.
+	var dbName=db;
+	var itemString=JSON.stringify(item);
+	eval('db.' + collectionName + '.insertOne('+itemString+')');
+	eval('var temp = db.getSiblingDB("'+dbName+'Backup")'); 
+	eval('temp.' + collectionName + '.insertOne('+itemString+')');
+}
+
+use shop //Going to our database.
+
+insertWithBackup('Products',{"name":"Laptop"}) //Inserting into the database with our new function.
+
+db.Products.find() //Displaying the inserted document.
+
+show dbs //Displaying all the databases. The backup database should be visible here.
+
+use shopBackup //Going to our backup database.
+
+db.Products.find() //Displaying the inserted document in our backup database.
