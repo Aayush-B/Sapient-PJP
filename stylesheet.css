@@ -1,0 +1,23 @@
+@media screen and (min-width:100px){
+    p{
+        font-family: 'Courier New';
+        font-size: 18px;
+        color: purple;
+    }
+}
+
+@media screen and (min-width:300px){
+    p{
+        font-family: Helvetica;
+        font-size: 24px;
+        color: red;
+    }
+}
+
+@media screen and (min-width:786px){
+    p{
+        font-family: Arial;
+        font-size: 36px;
+        color: blue;
+    }
+}
