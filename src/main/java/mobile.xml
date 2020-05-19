@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="mobile" class="com.aayush.SpringAssignment.Mobile" autowire="byType" scope="prototype">
+    	<constructor-arg ref="speaker"></constructor-arg>
+    	<constructor-arg ref="screen"></constructor-arg>
+    </bean>
+
+</beans>
