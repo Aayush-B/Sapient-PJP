@@ -1,2 +1,2 @@
 # Sapient-PJP
-A repository for Sapient-PJP Assignments. All the assignments are present on the respective branches.
+A repository for sapient pjp assignments. All the assignments are present on the respective branches.
